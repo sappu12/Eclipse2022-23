@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.row1::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+<script>
+	function goToPage2(imgUrl) {
+		window.location.href = "Send.html?imgUrl=" + encodeURIComponent(imgUrl);
+
+	}
+</script>
+</head>
+<body>
+<div class="row">
+  <div class="column">
+    <img src="CongratsImages/cg1.jpg" alt="Snow" style="width:100%;height:210px">
+ <br><a href="#" style="font-style:oblique;"  onclick="goToPage2('CongratsImages/cg1.jpg')"><p align="center">Select This</p></a>
+  </div>
+  <div class="column">
+    <img src="CongratsImages/cg2.jpg" alt="Forest" style="width:100%;height:213px">
+  <br><a href="#" style="font-style:oblique;" onclick="goToPage2('CongratsImages/cg2.jpg')"><p align="center">Select This</p></a>
+  </div>
+  <div class="column">
+    <img src="CongratsImages/cg3.jpg" alt="Mountains" style="width:100%;height:215px">
+  <br><a href="#" style="font-style:oblique;" onclick="goToPage2('CongratsImages/cg3.jpg')"><p align="center">Select This</p></a>
+  </div>
+</div>
+
+
+<div class="row1">
+  <div class="column">
+    <img src="CongratsImages/cg4.jpg" style="width:100%;height:183px">
+ <br><a href="#" style="font-style:oblique;" onclick="goToPage2('CongratsImages/cg4.jpg')"><p align="center">Select This</p></a>
+  </div>
+  <div class="column">
+    <img src="CongratsImages/cg5.jpg" style="width:100%;height:183px">
+  <br><a href="#" style="font-style:oblique;" onclick="goToPage2('CongratsImages/cg5.jpg')"><p align="center">Select This</p></a>
+  </div>
+  <div class="column">
+    <img src="CongratsImages/cg6.jpg" style="width:100%;height:183px">
+  <br><a href="#" style="font-style:oblique;" onclick="goToPage2('CongratsImages/cg6.jpg')"><p align="center">Select This</p></a>
+  </div>
+</div>
+
+</body>
+</html>

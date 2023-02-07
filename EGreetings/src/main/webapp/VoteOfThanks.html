@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<br>
+	<br>
+	<br>
+	<div align="center" style="font-size: 20px;">
+		Your greeting has been sent to
+		<div id="emailID" style="color:green;font-style:italic;"></div>
+		<br> with the message of
+		<div id="textMsg" style="color:red;font-style:italic;"></div>
+		<br>
+		<h3>Thank you for using our system...</h3>
+	</div>
+</body>
+
+<script>
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	const emailID = urlParams.get('emailID')
+	const textMsg = urlParams.get('textMsg')
+	document.getElementById("emailID").innerHTML = emailID;
+	document.getElementById("textMsg").innerHTML = textMsg;
+</script>
+
+</html>

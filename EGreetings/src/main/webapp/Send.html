@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Send To</title>
+
+</head>
+<body>
+	<form action="VoteOfThanks.html" name="greetingForm" id="greetingForm" method="get" >
+		<div align="center">
+
+			<img id="displayedImage" alt="Image"> <br>
+			<br>
+			<table>
+				<tr>
+					<td>Enter Email:</td>
+					<td><input type="email" name="emailID" id="emailID" style="width: 150px;"
+						required="required" placeholder="enter email"></td>
+				</tr>
+				<tr>
+					<td>Enter Message:</td>
+					<td><textarea style="width: 150px; height: 73px;" name="textMsg" id="textMsg" 
+							placeholder="enter message"></textarea></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="Button"
+						value="Send" onclick="submitGreetingForm();" ></td>
+				</tr>
+
+			</table>
+
+		</div>
+
+	</form>
+</body>
+
+<script>
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	const product = urlParams.get('imgUrl')
+	document.getElementById("displayedImage").src = product;
+	
+	function submitGreetingForm(){
+		var emailID= document.getElementById("emailID");
+		var textMsg= document.getElementById("textMsg");
+		var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+		
+		if(!emailID.value.match(mailformat)){
+			alert("Invalid Email, please provide valid email");
+			emailID.focus();
+		}
+		else if(textMsg.value==""){
+			alert("No text message, please provide what you want to say");	
+			textMsg.focus();
+		}
+		else{
+			document.getElementById("greetingForm").submit();
+		} 
+		
+	}
+	
+</script>
+
+</html>
