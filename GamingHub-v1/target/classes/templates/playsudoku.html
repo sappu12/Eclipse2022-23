@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Play Sudoku</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+table {
+	border-collapse: collapse;
+	font-family: Calibri, sans-serif;
+}
+
+colgroup, tbody {
+	border: solid medium;
+}
+
+td {
+	border: solid thin;
+	height: 2em;
+	width: 2em;
+	text-align: center;
+	padding: 0;
+}
+
+input[type='number'] {
+	width: 2em;
+}
+
+input[readonly] {
+	background-color: #dcdcdc;
+}
+</style>
+</head>
+<body>
+	<h3 align="center">Sudoku</h3>
+	<form th:action="@{/postPlaySudoku}" method="POST">
+		<table align="center">
+			<colgroup>
+				<col>
+				<col>
+				<col>
+			</colgroup>
+			<colgroup>
+				<col>
+				<col>
+				<col>
+			</colgroup>
+			<colgroup>
+				<col>
+				<col>
+				<col>
+			</colgroup>
+			<tbody>
+				<tr th:each="row, rowIdx : ${#numbers.sequence(0,2)}">
+					<td
+						th:class="${sudokuPuzzle.question[row][col] != 0} ? 'readonly-cell' : ''"
+						th:each="col, colIdx : ${#numbers.sequence(0,8)}"><input
+						type="number" min="0" max="9"
+						th:value="${sudokuPuzzle.question[row][col]}"
+						th:name="${'answer[' + row + '][' + col + ']'}"
+						th:readonly="${sudokuPuzzle.question[row][col] != 0 }" /></td>
+				</tr>
+			</tbody>
+			<tbody>
+				<tr th:each="row, rowIdx : ${#numbers.sequence(3,5)}">
+					<td
+						th:class="${sudokuPuzzle.question[row][col] != 0} ? 'readonly-cell' : ''"
+						th:each="col, colIdx : ${#numbers.sequence(0,8)}"><input
+						type="number" min="0" max="9"
+						th:value="${sudokuPuzzle.question[row][col]}"
+						th:name="${'answer[' + row + '][' + col + ']'}"
+						th:readonly="${sudokuPuzzle.question[row][col] != 0}" /></td>
+				</tr>
+			</tbody>
+			<tbody>
+				<tr th:each="row, rowIdx : ${#numbers.sequence(6,8)}">
+					<td
+						th:class="${sudokuPuzzle.question[row][col] != 0} ? 'readonly-cell' : ''"
+						th:each="col, colIdx : ${#numbers.sequence(0,8)}"><input
+						type="number" min="0" max="9"
+						th:value="${sudokuPuzzle.question[row][col]}"
+						th:name="${'answer[' + row + '][' + col + ']'}"
+						th:readonly="${sudokuPuzzle.question[row][col] != 0}" /></td>
+				</tr>
+			</tbody>
+		</table>
+		<br>
+		<div align="center">
+			<button type="submit" class="btn btn-primary">Submit</button>
+			&nbsp;&nbsp;&nbsp; <a href="/resignPlaySudoku"
+				class="btn btn-primary">Resign</a>
+
+
+		</div>
+
+
+	</form>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+<jsp:directive.taglib uri="http://java.sun.com/jsf/html" prefix="p"></jsp:directive.taglib><jsp:directive.taglib
+	uri="http://java.sun.com/jsf/html" prefix="p"></jsp:directive.taglib><!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Register Page</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+</head>
+<body>
+	<div class="container my-3">
+		<div class="row">
+			<div class="row-md-8 mx-auto">
+				<h2>Register Form</h2>
+				<div>
+					<span th:text="${noUserRegisterMessage}" style="color:red;"></span>
+				</div>
+				<form th:action="@{/registerUser}" method="post">
+					<div class="form-row">
+						<div class="col-md-6 form-group">
+							<label>FirstName</label> <input type="text" class="form-control"
+								name="firstName">
+						</div>
+						<div class="col-md-6 form-group">
+							<label>LastName</label> <input type="text" class="form-control"
+								name="lastName">
+						</div>
+						<div class="col-md-6 form-group">
+							<label>Phone Number</label> <input type="text"
+								class="form-control" name="phoneNumber">
+						</div>
+						<div class="col-md-6 form-group">
+							<label>Email</label> <input type="email" class="form-control"
+								name="eMail" th:value="${newUserEmail}">
+						</div>
+						<div class="col-md-6 form-group">
+							<label>Password</label> <input type="password"
+								class="form-control" name="password">
+						</div>
+						&nbsp;
+						<div class="col-md-6 form-group">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<button type="submit" class="btn btn-primary ">Register</button>
+
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="/launchLogin" class="btn btn-primary ">Exit</a>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>User Details</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+th, td {
+	
+}
+</style>
+
+</head>
+<body>
+	<div class="container my-3">
+		<div class="row">
+			<div class="col-md-8 mx-auto">
+				<h6>User Details :</h6>
+				<table class="table table-striped" style="width: 100%">
+					<thead>
+						<tr>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>User Email</th>
+							<th>Phone Number</th>
+							<th>Role</th>
+							<th>Prime Status</th>
+							<th>New Role</th>
+							<th>New Prime Status</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="user:${users}">
+							<form th:action="@{/postManageUser}" method="POST">
+							<td><span th:text="${user.firstName}"></span></td>
+							<td><span th:text="${user.lastName}"></span></td>
+							<td><span th:text="${user.eMail}"></span> <input
+								type="hidden" name="eMail" th:value="${user.eMail}"></td>
+							<td><span th:text="${user.phoneNumber}"></span></td>
+							<td><span th:text="${user.role}"></span></td>
+							<td><span th:text="${user.primeMember}"></span></td>
+							<td>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="role"
+										id="Player" value="player" checked> <label
+										class="form-check-label">Player</label>&nbsp;&nbsp;
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="role"
+										id="Creator" value="creator"> <label
+										class="form-check-label">Creator</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="role"
+										id="Admin" value="admin"> <label
+										class="form-check-label">Admin</label>
+								</div>
+
+							</td>
+							<td>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="primeMember"
+										id="No" value="0" checked> <label
+										class="form-check-label">No</label>&nbsp;&nbsp;
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="primeMember"
+										id="Yes" value="1"> <label class="form-check-label">Yes</label>
+								</div>
+							</td>
+							<td>
+							<button type=submit>Save</button>
+							<!--a href="manageuser.html" target="content"><i
+									title="Update" id="update" class="fa fa-pencil-square-o"
+									style="font-size: 20px; color: blue"></i></a> <a
+								href="manageuser.html" target="content"><i title="Delete"
+									id="delete" class="fa fa-trash-o"
+									style="font-size: 20px; color: red"></i></a -->
+							</td>
+							</form>
+						</tr>
+
+					</tbody>
+				</table>
+				<span th:text="${manageNote}"></span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
