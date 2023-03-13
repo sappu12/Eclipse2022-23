@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="UTF-8">
+<title>Top Players</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 10px;
+}
+</style>
+</head>
+<body>
+	<div class="container my-3">
+		<div class="row">
+			<div class="col-md-8 mx-auto">
+
+				<h2>Top Players List :</h2>
+				<br>
+				<table class="table table-striped" style="width: 100%">
+					<thead>
+						<tr>
+
+							<th>Player</th>
+							<th>Wins</th>
+							<th>Quits/Loses</th>
+							<th>Average Winning Time(In Seconds)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="playerStat: ${playerStats}">
+							<td><span th:text="${playerStat.player}"></span></td>
+							<td><span th:text="${playerStat.totalGamesWon}"></span></td>
+							<td><span th:text="${playerStat.totalGamesNotWon}"></span></td>
+							<td><span th:text="${playerStat.averageTimeSpent}"></span></td>
+
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
